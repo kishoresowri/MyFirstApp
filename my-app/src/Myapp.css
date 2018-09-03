@@ -1,0 +1,33 @@
+
+.headerview-details {
+    border: 2px solid grey;
+    display: flex;
+    flex-wrap: wrap;
+}
+.header-wrapper {
+    background-color: gray;
+    flex: 1;
+}
+.router-wrapper {
+   flex: 1;
+    background-color: red;
+}
+
+.router-wrapper, li {
+    list-style: none;
+}
+
+.viewcart-details {
+    flex:1;
+    background-color: blue;
+    justify-content: flex-end;
+}
+.footer-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    bottom: 0px;
+}
+.footer-info, p {
+    padding: 5px;
+}
