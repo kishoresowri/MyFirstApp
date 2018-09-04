@@ -3,7 +3,7 @@ import "./Myapp.css";
 
 import Dash from './Components/View/Dash';
 import Footer from "./Components/View/Footer";
-import SideBar from "./Main/SideBar";
+import MainView from "./Main/MainView";
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <div className="myapp-info">
           <Dash />
-          <SideBar />
+          <MainView />
           <Footer />
         </div>
       </div>

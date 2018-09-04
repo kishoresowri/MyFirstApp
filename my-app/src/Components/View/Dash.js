@@ -2,13 +2,13 @@ import React from "react";
 
 import Header from './Header';
 import ViewCart from './ViewCart';
-import RouteDetails from './RouteDetails';
+import HeaderList from './HeaderList';
 
 const Dash = props => {
   return (
     <div className="headerview-details">
       <Header />
-			<RouteDetails />
+			<HeaderList />
       <ViewCart />
     </div>
   );

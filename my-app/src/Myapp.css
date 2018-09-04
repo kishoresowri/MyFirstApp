@@ -1,16 +1,16 @@
 
 .headerview-details {
-    border: 2px solid grey;
+    background: grey;
     display: flex;
     flex-wrap: wrap;
 }
 .header-wrapper {
-    background-color: gray;
+    
     flex: 1;
 }
 .router-wrapper {
    flex: 1;
-    background-color: red;
+   
 }
 
 .router-wrapper, li {
@@ -19,14 +19,57 @@
 
 .viewcart-details {
     flex:1;
-    background-color: blue;
+   
     justify-content: flex-end;
+}
+.sidebar-details {
+    margin-left: 10%;
+    display: inline-block;
+    /* background: lightgray; */
+    margin-top: 5px;
+    margin-left: 12%;
+    margin-right: 2%;
+    margin-bottom: 5%;
+}
+ .search-info {
+     margin: 5%;
+ }
+ input {
+     border: 2px solid gainsboro;
+     padding: 5px;
+ }
+ .filter1 {
+     margin: 5%;
+ }
+ .filter2 {
+     margin:5%;
+ }
+ .filter3 {
+    margin:5%;
+}
+ input[type=checkbox] {
+     margin-top:0px;
+     padding: 0px;
+ }
+.main-container-view {
+    display: flex;
+    flex-direction: row;
+}
+.list-container {
+    flex-flow: column;
+}
+.header-list-details {
+    display: flex;
+    flex-direction: row;
 }
 .footer-info {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    bottom: 0px;
+    bottom: 0%;
+    background-color: black;
+    color: white;
+    margin : auto;
 }
 .footer-info, p {
     padding: 5px;
