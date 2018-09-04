@@ -5,22 +5,22 @@ const HeaderList = props => {
   return (
     <div className="header-list-details">
       <div className="mobile-info">
-        <button>Mobiles</button>
+        <span>Mobiles</span>
       </div>
       <div className="men-info">
-        <button>Men</button>
+      <span>Men</span>
       </div>
       <div className="Woman-info">
-        <button>Woman</button>
+      <span>Woman</span>
       </div>
       <div className="electronic-info">
-        <button>Electronic</button>
+      <span>Electronic</span>
       </div>
       <div className="home-info">
-        <button>Home & Kitchen</button>
+      <span>Home & Kitchen</span>
       </div>
       <div className="kids-info">
-        <button>Baby & kids </button>
+      <span>Baby & Kids</span>
       </div>
     </div>
   );

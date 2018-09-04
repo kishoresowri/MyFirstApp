@@ -12,7 +12,7 @@ class ViewCart extends Component {
 render() {
   return (
     <div className="viewcart-details">
-      <button onClick={ this.handleClick } ><i className="fa fa-shopping-cart"></i>ViewCart</button>
+      <span ><i className="fa fa-shopping-cart"></i>ViewCart</span>
     </div>
   );
 }
