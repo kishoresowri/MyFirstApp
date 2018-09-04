@@ -1,27 +1,18 @@
 
 .headerview-details {
-    background: grey;
+    background: black;
+    color: #fff;
     display: flex;
     flex-wrap: wrap;
-}
-.header-wrapper {
-    
-    flex: 1;
-}
-.router-wrapper {
-   flex: 1;
-   
-}
-
-.router-wrapper, li {
-    list-style: none;
+    justify-content: space-between;
 }
 
 .viewcart-details {
-    flex:1;
-   
     justify-content: flex-end;
+    font-size: 22px;
+    align-content: center;
 }
+
 .sidebar-details {
     margin-left: 10%;
     display: inline-block;
@@ -60,7 +51,9 @@
 }
 .header-list-details {
     display: flex;
+    flex-flow: column;
     flex-direction: row;
+    margin-top: 25px;
 }
 .footer-info {
     display: flex;

@@ -22,7 +22,7 @@ class ProductView extends Component {
   render() {
 		const { products } = this.state;
     return (
-      <div>
+      <div className="product-view-details">
         <h3> Showing 12 mobiles </h3>
         <ProductList 
 				 getProducts = { products }/>
