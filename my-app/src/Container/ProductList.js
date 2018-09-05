@@ -1,11 +1,5 @@
 import React from "react";
-import { 
-	Grid, 
-	Row, 
-	Col, 
-	Image, 
-	Button,
-	Carousel } from "react-bootstrap";
+import { Grid, Row, Col, Image, Button, Carousel } from "react-bootstrap";
 
 const ProductList = props => {
   const getProducts = props.getProducts;
@@ -16,14 +10,17 @@ const ProductList = props => {
       <Grid>
         <Row>
           {getProducts.map((item, key) => (
-            <Col key={item.id} >
-              <Image src={item.image} thumbnail />
-              <pre>{item.title}</pre>
-              <p>{item.price}</p>
+            <Col xs={4} key={item.id} >
+              <figure>
+                <Image src={item.image} thumbnail />
+                <figcaption>{item.title}</figcaption>
+                <figcaption><label>Rs. </label>{item.price}</figcaption>
+              </figure>
               <Button bsStyle="primary">
                 <i className="fa fa-shopping-cart" />
                 Add
               </Button>
+              <hr />
             </Col>
           ))}
         </Row>

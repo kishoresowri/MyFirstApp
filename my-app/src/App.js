@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "./Myapp.css";
+import "./sass/Style.css";
 
-import Dash from './Components/View/Dash';
-import Footer from "./Components/View/Footer";
-import MainView from "./Main/MainView";
+import Dash from './View/Dash';
+import Footer from "./View/Footer";
+import MainView from "./Container/MainView";
 
 class App extends Component {
   render() {

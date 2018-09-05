@@ -13,8 +13,8 @@ const SideBar = props => {
       <div className="filter1">
         <form>
           <label>Filter By types: </label>
-          <pre><input type="checkbox" /><label>Smart phone</label></pre>
-          <pre><input type="checkbox" /><label>Feature phone</label></pre>
+          <pre><input type="checkbox" /> <label> Smart phone </label></pre>
+          <pre><input type="checkbox" /> <label> Feature phone </label></pre>
         </form>
         <hr />
       </div>
