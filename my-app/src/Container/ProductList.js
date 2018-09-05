@@ -1,10 +1,10 @@
 import React from "react";
-import { Grid, Row, Col, Image, Button, Carousel } from "react-bootstrap";
+import { Grid, Row, Col, Image, Button } from "react-bootstrap";
 
 const ProductList = props => {
   const getProducts = props.getProducts;
-  console.log(getProducts);
-
+  // console.log(getProducts);
+  
   return (
     <div className="list-container">
       <Grid>

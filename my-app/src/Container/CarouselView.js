@@ -20,7 +20,7 @@ class CarouselView extends Component {
   }
 
   render() {
-    const { index, direction } = this.state;
+    // const { index, direction } = this.state;
     return (
       <div className="carousel-view-container">
         <h2> Related Items </h2>

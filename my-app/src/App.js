@@ -3,7 +3,7 @@ import "./sass/Style.css";
 
 import Dash from './View/Dash';
 import Footer from "./View/Footer";
-import MainView from "./Container/MainView";
+import DashView from "./Container/DashView";
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <div className="myapp-info">
           <Dash />
-          <MainView />
+          <DashView />
           <Footer />
         </div>
       </div>

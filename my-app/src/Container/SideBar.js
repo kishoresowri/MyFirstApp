@@ -1,6 +1,20 @@
-import React from "react";
+import React, { Component, PropTypes } from "react";
 
-const SideBar = props => {
+class SideBar extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isChecked : false
+    };
+    
+  }
+
+  toggleChange = (e) => {
+    e.preventDefault();
+    console.log('checkbox checked');
+  }
+  render(){
+    const { isChecked } = this.state;
   return (
     <div className="sidebar-details">
       <div className="search-info">
@@ -13,7 +27,13 @@ const SideBar = props => {
       <div className="filter1">
         <form>
           <label>Filter By types: </label>
-          <pre><input type="checkbox" /> <label> Smart phone </label></pre>
+          <pre>
+          <input type="checkbox" 
+          checked = { isChecked }
+          onChange = { this.toggleChange }
+          /> 
+          <label> Smart phone </label>
+          </pre>
           <pre><input type="checkbox" /> <label> Feature phone </label></pre>
         </form>
         <hr />
@@ -41,5 +61,6 @@ const SideBar = props => {
     </div>
   );
 };
+}
 
 export default SideBar;
