@@ -57,7 +57,7 @@
 .footer-info p {
   padding: 10px;
   margin-top: 13px;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .sidebar-details {
@@ -88,15 +88,24 @@
 
 .list-container {
   display: flex;
-  flex-direction: row;
-  margin-left: 20px;
+  flex-direction: column;
+  margin-left: 5px;
   margin-top: 10px;
+}
+.list-container .mobile-list {
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
 }
 .list-container figure {
   text-align: center;
 }
-.list-container Button {
+.list-container button {
   margin-left: 40%;
+}
+.list-container Modal {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .carousel-container {
@@ -106,7 +115,6 @@
 }
 
 .carousel-view-container {
-  height: 70vh;
   margin-top: 10px;
 }
 .carousel-view-container h2 {

@@ -3,7 +3,7 @@ import "./sass/Style.css";
 
 import Dash from './View/Dash';
 import Footer from "./View/Footer";
-import DashView from "./Container/DashView";
+import DashView from "./Components/DashView";
 
 class App extends Component {
   render() {

@@ -1,20 +1,21 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 
 class SideBar extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      isChecked : false
-    };
-    
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  toggleChange = (e) => {
-    e.preventDefault();
-    console.log('checkbox checked');
-  }
+  handleChange = (e) => {
+    const target = e.target.id;
+    if(target.checked === target.value)
+    this.props.getFilterList(target); 
+    }
+
   render(){
-    const { isChecked } = this.state;
+    // const getProducts = this.props.getProducts;
+    // console.log(getProducts);
+    // const { isChecked } = this.state;
   return (
     <div className="sidebar-details">
       <div className="search-info">
@@ -28,20 +29,29 @@ class SideBar extends Component {
         <form>
           <label>Filter By types: </label>
           <pre>
-          <input type="checkbox" 
-          checked = { isChecked }
-          onChange = { this.toggleChange }
+          <input type="checkbox" id="smartphone"
+           value = "smartphone"
+           checked = { this.props.selectCheckBox }
+           onChange = { this.handleChange }
           /> 
-          <label> Smart phone </label>
+          <label > Smart phone </label>
           </pre>
-          <pre><input type="checkbox" /> <label> Feature phone </label></pre>
+          <pre><input id="iphone"
+          type="checkbox"
+          checked = { this.props.selectCheckBox }
+          onChange = { this.handleChange }        
+            // onChange = { this.props.getFilterList.bind(this) }
+           /> <label> Feature phone </label></pre>
         </form>
         <hr />
       </div>
       <div className="filter2">
         <form>
           <label>Filter By Brands: </label>
-          <pre><input type="checkbox" /> <label> Apple</label></pre>
+          <pre><input type="checkbox" 
+          checked = { this.props.selectCheckBox }
+          onChange = { this.handleChange }
+          /> <label> Apple</label></pre>
           <pre><input type="checkbox" /> <label> Samsung</label></pre>
           <pre><input type="checkbox" /> <label> Nokia</label></pre>
           <pre><input type="checkbox" /> <label> Micromax</label></pre>

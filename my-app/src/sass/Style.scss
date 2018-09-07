@@ -1,22 +1,25 @@
+$tablet-width: 400px;
+$desktop-width: 1024px;
+
 .headerview-details {
   display: flex;
   flex-direction: row;
   background-color: black;
   color: white;
-  justify-content: space-between;
+	justify-content: space-between;
 }
 .header-wrapper {
-	margin: 5px 15px;
-	font-size: 15px;
+  margin: 5px 15px;
+  font-size: 15px;
 }
 .header-list-details {
-	align-content: center;
+  align-content: center;
   nav {
     ul {
-			list-style: none;
+      list-style: none;
       li {
         display: inline-block;
-        margin: 20px ;
+        margin: 20px;
         padding: auto;
         font-size: 18px;
       }
@@ -25,101 +28,131 @@
         text-decoration: none;
       }
       a:hover {
-				background: light gray;
-			}
-			a:active {
-				background: lightgray;
-			}
+        background: light gray;
+      }
+      a:active {
+        background: lightgray;
+      }
     }
   }
 }
 .viewcart-details {
-	margin-top: 20px;
-	font-size: 22px;
-	margin-right: 5%;
+  margin-top: 20px;
+  font-size: 22px;
+  margin-right: 5%;
 }
 .main-container-view {
-	display: flex;
-	margin: 2% 12%;
+  display: flex;
+  margin: 2% 12%;
 }
 .footer-info {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	background-color: black;
-	color: white;
-	position: relative;
-	height: 80px;
-	p {
-		padding: 10px;
-		margin-top: 13px;
-		font-size: 22px;
-	}
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  position: relative;
+  height: 80px;
+  p {
+    padding: 10px;
+    margin-top: 13px;
+    font-size: 20px;
+  }
 }
 .sidebar-details {
-	display: flex;
-	flex-direction: column;
-	.search-info {
-		input {
-			border: 4px solid lightgray;
-		}
-	}
-	pre {
-		border: none;
-		background: none;
-		margin-top: 0px;
-		padding: 0px;
-		input {
-			margin-top:-10px;
-		}
-		label {
-			margin-top:0px;
-		}
-	}
+  display: flex;
+  flex-direction: column;
+  .search-info {
+    input {
+      border: 4px solid lightgray;
+    }
+  }
+  pre {
+    border: none;
+    background: none;
+    margin-top: 0px;
+    padding: 0px;
+    input {
+      margin-top: -10px;
+    }
+    label {
+      margin-top: 0px;
+    }
+  }
 }
 .product-view-details {
-	h3 {
-		text-align: center;
-		margin-top:0px;
-		margin-bottom: 10px;
-	}
+  h3 {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
 }
 .list-container {
-	display: flex;
-	flex-direction: row;
-	margin-left: 20px;
-	margin-top: 10px;
-	figure {
-		text-align: center;
-	}
-	Button {
-		margin-left: 40%;
-	}
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  margin-top: 10px;
+  .mobile-list {
+      text-align: center;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+  }
+  figure {
+    text-align: center;
+  }
+  button {
+    margin-left: 40%;
+  }
+  Modal {
+    display: flex;
+    justify-content: flex-end;
+    
+  }
 }
 .carousel-container {
-	width: 50%;
-	margin-left:30%;
-	margin-right: 20%;
+  width: 50%;
+  margin-left: 30%;
+  margin-right: 20%;
 }
 .carousel-view-container {
-		height: 70vh;
-		margin-top:10px;
+  // height: 50vh;
+  margin-top: 10px;
 
-		h2 {
-			text-align: center;
-			margin-bottom: 5%;
-		}
-	
-		img {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			margin-left:33%;
-		}
-		// img {
-		// 	display: flex;
-		// 	flex-direction: column;
-		// 	margin-left:45%;
-		// 	padding: 5px;
-		// }
+  h2 {
+    text-align: center;
+    margin-bottom: 5%;
+  }
+
+  img {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 33%;
+  }
+  // img {
+  // 	display: flex;
+  // 	flex-direction: column;
+  // 	margin-left:45%;
+  // 	padding: 5px;
+  // }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    .headerview-details {
+      display: flex;
+			flex-direction: column;
+			overflow: hidden;
+    }
+    .list-container {
+      order: 2;
+      button {
+        margin-left: 5%;
+        align-content: center;
+      }
+    }
+    .carousel-container {
+      margin: 0% auto;
+    }
+  }
 }
