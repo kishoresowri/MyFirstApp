@@ -1,10 +1,12 @@
+$tablet-width: 400px;
+$desktop-width: 1024px;
+
 .headerview-details {
   display: flex;
   flex-direction: row;
   background-color: black;
   color: white;
-  justify-content: space-between;
-  width: 100%;
+	justify-content: space-between;
 }
 .header-wrapper {
   margin: 5px 15px;
@@ -54,7 +56,7 @@
   p {
     padding: 10px;
     margin-top: 13px;
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 .sidebar-details {
@@ -87,15 +89,24 @@
 }
 .list-container {
   display: flex;
-  flex-direction: row;
-  margin-left: 10px;
+  flex-direction: column;
+  margin-left: 5px;
   margin-top: 10px;
-  margin-right: 10%;
+  .mobile-list {
+      text-align: center;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+  }
   figure {
     text-align: center;
   }
   button {
     margin-left: 40%;
+  }
+  Modal {
+    display: flex;
+    justify-content: flex-end;
+    
   }
 }
 .carousel-container {
@@ -104,7 +115,7 @@
   margin-right: 20%;
 }
 .carousel-view-container {
-  height: 70vh;
+  // height: 50vh;
   margin-top: 10px;
 
   h2 {
@@ -126,27 +137,22 @@
   // }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .headerview-details {
-    display: flex;
-    flex-direction: row;
-    background-color: black;
-    color: white;
-    justify-content: space-between;
-    width: 100%;
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    .headerview-details {
+      display: flex;
+			flex-direction: column;
+			overflow: hidden;
+    }
+    .list-container {
+      order: 2;
+      button {
+        margin-left: 5%;
+        align-content: center;
+      }
+    }
+    .carousel-container {
+      margin: 0% auto;
+    }
   }
-  .carousel-container {
-	width: 50%;
-	margin-left: 30%;
-	margin-right: 20%;
-  }
-  .carousel-view-container {
-	height: 70vh;
-	margin-top: 10px;
-  
-	h2 {
-	  text-align: center;
-	  margin-bottom: 5%;
-	}
-}
 }
