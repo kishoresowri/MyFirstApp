@@ -4,6 +4,7 @@
   background-color: black;
   color: white;
   justify-content: space-between;
+  width: 100%;
 }
 
 .header-wrapper {
@@ -89,13 +90,14 @@
 .list-container {
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-top: 10px;
+  margin-right: 10%;
 }
 .list-container figure {
   text-align: center;
 }
-.list-container Button {
+.list-container button {
   margin-left: 40%;
 }
 
@@ -118,6 +120,32 @@
   flex-direction: row;
   justify-content: space-between;
   margin-left: 33%;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .headerview-details {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .carousel-container {
+    width: 50%;
+    margin-left: 30%;
+    margin-right: 20%;
+  }
+
+  .carousel-view-container {
+    height: 70vh;
+    margin-top: 10px;
+  }
+  .carousel-view-container h2 {
+    text-align: center;
+    margin-bottom: 5%;
+  }
 }
 
 /*# sourceMappingURL=Style.css.map */
