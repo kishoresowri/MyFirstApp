@@ -9,7 +9,7 @@ class SideBar extends Component {
   handleChange = (e) => {
     const target = e.target.id;
     if(target.checked === target.value)
-    this.props.getFilterList(target); 
+    this.props.getFilterList(target);
     }
 
   render(){

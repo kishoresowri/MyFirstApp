@@ -12,6 +12,7 @@ class ProductList extends Component {
   // console.log(getProducts);
   render(){
     const getProducts = this.props.getProducts;
+    
   return (
     <div className="list-container">
       <Grid>

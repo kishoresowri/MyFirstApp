@@ -1,5 +1,4 @@
-$tablet-width: 400px;
-$desktop-width: 1024px;
+
 
 .headerview-details {
   display: flex;
@@ -138,11 +137,12 @@ $desktop-width: 1024px;
 }
 
 @mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+  @media (min-width: 400px)  {
     .headerview-details {
       display: flex;
 			flex-direction: column;
-			overflow: hidden;
+      overflow: hidden;
+      width: 100%;
     }
     .list-container {
       order: 2;
@@ -150,9 +150,23 @@ $desktop-width: 1024px;
         margin-left: 5%;
         align-content: center;
       }
+      .mobile-list {
+        margin-right: 25px;
+      }
     }
     .carousel-container {
       margin: 0% auto;
     }
   }
+}
+
+@media (min-width: 992px) {
+  .list-container {
+    width: 970px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
 }
