@@ -8,10 +8,12 @@ class SideBar extends Component {
 
   handleChange = (e) => {
     const target = e.target.id;
-    if(target.checked === target.value)
+    if(!this.props.checked){
+    if(target.checked === target.value) 
     this.props.getFilterList(target);
-    }
-
+    } 
+    
+  }
   render(){
     // const getProducts = this.props.getProducts;
     // console.log(getProducts);
@@ -21,7 +23,7 @@ class SideBar extends Component {
       <div className="search-info">
         <form>
           <h3>Search</h3>
-          <input type="text" placeholder="Search" />
+          <input type="searchbox" placeholder="Search" />
           <hr />
         </form>
       </div>
@@ -31,14 +33,14 @@ class SideBar extends Component {
           <pre>
           <input type="checkbox" id="smartphone"
            value = "smartphone"
-           checked = { this.props.selectCheckBox }
+          //  checked = { this.props.selectCheckBox }
            onChange = { this.handleChange }
           /> 
           <label > Smart phone </label>
           </pre>
           <pre><input id="iphone"
           type="checkbox"
-          checked = { this.props.selectCheckBox }
+          // checked = { this.props.selectCheckBox }
           onChange = { this.handleChange }        
             // onChange = { this.props.getFilterList.bind(this) }
            /> <label> Feature phone </label></pre>
@@ -48,13 +50,19 @@ class SideBar extends Component {
       <div className="filter2">
         <form>
           <label>Filter By Brands: </label>
-          <pre><input type="checkbox" 
-          checked = { this.props.selectCheckBox }
+          <pre><input type="checkbox" id="Apple"
+          // checked = { this.props.selectCheckBox }
           onChange = { this.handleChange }
           /> <label> Apple</label></pre>
-          <pre><input type="checkbox" /> <label> Samsung</label></pre>
-          <pre><input type="checkbox" /> <label> Nokia</label></pre>
-          <pre><input type="checkbox" /> <label> Micromax</label></pre>
+          <pre><input type="checkbox" id="Motorola"
+          onChange = { this.handleChange }
+           /> <label> Samsung</label></pre>
+          <pre><input type="checkbox" id="Nokia" 
+           onChange = { this.handleChange } 
+           /> <label> Nokia</label></pre>
+          <pre><input type="checkbox" id="Micromax"
+           onChange = { this.handleChange } 
+           /> <label> Micromax</label></pre>
         </form>
         <hr />
         <hr />
@@ -62,8 +70,12 @@ class SideBar extends Component {
       <div className="filter3">
         <form>
           <label>Filter By OPERATING SYSTEM: </label>
-          <pre><input type="checkbox" /> <label> Android </label></pre>
-          <pre><input type="checkbox" /> <label> IOS </label></pre>
+          <pre><input type="checkbox" id="smartphone"
+           onChange = { this.handleChange } 
+           /> <label> Android </label></pre>
+          <pre><input type="checkbox" id="iphone"
+          onChange = { this.handleChange } 
+          /> <label> IOS </label></pre>
         </form>
         <hr />
         <hr />

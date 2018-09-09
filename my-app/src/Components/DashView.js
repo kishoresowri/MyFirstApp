@@ -36,9 +36,10 @@ class DashView extends Component {
     console.log(products);
     // console.log(item);
     let newProduct = [];
-    if ((isChecked === false && item === "smartphone") || item === "iphone") {
+    if ((isChecked === false) && (item === item ))
+    {
       for (let i = 0; i < products.length; i++) {
-        if (products[i].ptype === item) {
+        if ((products[i].ptype === item) || (products[i].title === item)) {
           console.log(item);
           newProduct.push(products[i]);
         }
