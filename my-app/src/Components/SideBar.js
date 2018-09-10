@@ -8,11 +8,11 @@ class SideBar extends Component {
 
   handleChange = (e) => {
     const target = e.target.id;
+    console.log(target);
     if(!this.props.checked){
     if(target.checked === target.value) 
     this.props.getFilterList(target);
-    } 
-    
+    }   
   }
   render(){
     // const getProducts = this.props.getProducts;
@@ -23,7 +23,8 @@ class SideBar extends Component {
       <div className="search-info">
         <form>
           <h3>Search</h3>
-          <input type="searchbox" placeholder="Search" />
+          <input type="searchbox" placeholder="Search"
+          onKeyUp = { this.handleChange }  />
           <hr />
         </form>
       </div>
@@ -54,7 +55,7 @@ class SideBar extends Component {
           // checked = { this.props.selectCheckBox }
           onChange = { this.handleChange }
           /> <label> Apple</label></pre>
-          <pre><input type="checkbox" id="Motorola"
+          <pre><input type="checkbox" id="Samsung JS"
           onChange = { this.handleChange }
            /> <label> Samsung</label></pre>
           <pre><input type="checkbox" id="Nokia" 

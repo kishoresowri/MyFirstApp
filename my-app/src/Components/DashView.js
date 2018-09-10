@@ -24,64 +24,43 @@ class DashView extends Component {
       this.setState({
         products: res.data.products,
         prevProducts: res.data.products,
-        isChecked : this.state.isChecked
+
+        isChecked: this.state.isChecked
       });
     });
   }
 
   getProductList = item => {
-    const { products, prevProducts, isChecked } = this.state;
+    const { products, prevProducts,  isChecked } = this.state;
 
-    
-    console.log(products);
+    // console.log(products);
     // console.log(item);
     let newProduct = [];
-    if ((isChecked === false) && (item === item ))
-    {
+    if (isChecked === false && item === item) {
       for (let i = 0; i < products.length; i++) {
-        if ((products[i].ptype === item) || (products[i].title === item)) {
+        if (products[i].ptype === item || products[i].title === item) {
           console.log(item);
           newProduct.push(products[i]);
         }
       }
       console.log(newProduct);
       this.setState({
-        prevProducts : this.state.products,   
+        prevProducts: this.state.products,
         products: newProduct,
         isChecked: !isChecked
       });
     } else {
       console.log("unchecked");
+      // console.log(newProduct);
       console.log(prevProducts);
-      if(isChecked){
-      this.setState({
-        products: prevProducts,
-        isChecked : !isChecked
-      })
-    }
-      // if (isChecked === true) {
-        // for (let i = 0; i < products.length; i++) {
-        //   if (products[i].ptype === item) {
-        //     console.log(item);
-        //     prevProducts.push(products[i]);
-        //   }
-        //   this.setState({
-        //     products: prevProducts,
-        //     isChecked: this.state.isChecked
-        //   });
-        // }
+      if (isChecked) {
+        this.setState({
+          products: prevProducts,
+          isChecked: !isChecked
+        });
       }
-    
+    }
   };
-
-  // clearCheck = (item) => {
-  //   if(!this.isChecked){
-  //     this.setState({
-  //       products : this.products,
-  //       isChecked : this.state.isChecked
-  //     })
-  //   }
-  // }
 
   render() {
     const { products, isChecked } = this.state;
@@ -89,11 +68,11 @@ class DashView extends Component {
       <div>
         <div className="main-container-view">
           <SideBar
-            selectCheckBox={isChecked}
-            getProducts={products}
-            getFilterList={this.getProductList}
+            selectCheckBox = {isChecked}
+            getProducts = {products}
+            getFilterList = {this.getProductList}
           />
-          <ProductList viewProducts={products} />
+          <ProductList viewProducts = {products} />
         </div>
         <div className="carousel-container">
           <CarouselView />
