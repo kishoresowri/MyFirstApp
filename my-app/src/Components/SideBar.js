@@ -3,8 +3,20 @@ import React, { Component } from "react";
 class SideBar extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      query : ''
+    },
     this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    // this.getSearchList = this.props.getSearchList.bind(this);
   }
+
+  handleInputChange = (e) => {
+    const searchItem = e.target.value;
+    console.log(searchItem);
+    this.props.getSearchList(searchItem);
+  }
+
 
   handleChange = (e) => {
     const target = e.target.id;
@@ -24,7 +36,7 @@ class SideBar extends Component {
         <form>
           <h3>Search</h3>
           <input type="searchbox" placeholder="Search"
-          onKeyUp = { this.handleChange }  />
+          onKeyUp = { this.handleInputChange }  />
           <hr />
         </form>
       </div>

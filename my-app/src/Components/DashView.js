@@ -10,12 +10,16 @@ class DashView extends Component {
     super(props);
     this.state = {
       products: [],
+      results: [],
       prevProducts: [],
       isChecked: false
     };
     this.getProductList = this.getProductList.bind(this);
+    this.getSearchInfo = this.getSearchInfo.bind(this);
     // this.clearCheck = this.clearCheck.bind(this);
   }
+
+
   componentDidMount() {
     // const { isChecked } = this.state;
     let apiUrl = ` https://api.myjson.com/bins/4xc0c`;
@@ -24,14 +28,42 @@ class DashView extends Component {
       this.setState({
         products: res.data.products,
         prevProducts: res.data.products,
-
-        isChecked: this.state.isChecked
+        isChecked: this.state.isChecked,
+        // results: this.state.results
       });
     });
   }
 
+  getSearchInfo = item => {
+    const { products, prevProducts } = this.state;
+    let results = [];
+    let temp = products;
+    if (item && item.length > 0) {
+      prevProducts.filter(prod => {  
+        if ((prod.title.indexOf(item) > -1)){
+          results.push(prod);
+           return results;
+        }
+      });
+      console.log(results,"products list");   
+      this.setState({   
+        temp: products,
+        products: results
+     });
+
+    } else {
+        // results = prevProducts;
+        // temp = results;
+        console.log(temp,"results");       
+        this.setState({
+          products: prevProducts
+        })
+    }
+    
+  };
+
   getProductList = item => {
-    const { products, prevProducts,  isChecked } = this.state;
+    const { products, prevProducts, isChecked } = this.state;
 
     // console.log(products);
     // console.log(item);
@@ -68,11 +100,12 @@ class DashView extends Component {
       <div>
         <div className="main-container-view">
           <SideBar
-            selectCheckBox = {isChecked}
-            getProducts = {products}
-            getFilterList = {this.getProductList}
+            selectCheckBox={isChecked}
+            getProducts={products}
+            getFilterList={this.getProductList}
+            getSearchList={this.getSearchInfo}
           />
-          <ProductList viewProducts = {products} />
+          <ProductList viewProducts={products} />
         </div>
         <div className="carousel-container">
           <CarouselView />
