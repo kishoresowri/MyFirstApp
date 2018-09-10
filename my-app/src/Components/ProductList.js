@@ -13,7 +13,7 @@ const ProductList = (props) => {
         <Grid>
           <Row>
             { viewProducts.map((item, key) => (
-              <Col xs={12} sm={4} md={4} lg={4} key={item.id}>
+              <Col xs={4}  key={item.id}>
                 <figure>
                   <Image src={item.image} thumbnail />
                   <figcaption>{item.title}</figcaption>
