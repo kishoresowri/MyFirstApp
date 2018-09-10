@@ -27,7 +27,13 @@ class DashView extends Component {
       });
     });
   } 
-  
+  toggleChange = () => {
+    let checkStatus = this.state.isChecked;
+    this.setState({
+      isChecked : !checkStatus
+    })
+  }
+
   getProductList= (item) => {
     const { products, isChecked } = this.state;
     console.log(products);
@@ -48,7 +54,7 @@ class DashView extends Component {
         isChecked : !isChecked
       });
     }
-      else {
+      else if(item) {
         this.clearCheck(item);
       }
   }
@@ -70,7 +76,8 @@ class DashView extends Component {
           <SideBar 
            selectCheckBox = { isChecked }          
            getProducts = { products } 
-           getFilterList= { this.getProductList }/>
+           getFilterList = { this.getProductList }
+           onClick = { this.toggleChange }/>
           <ProductList viewProducts = { products } />
         </div>
         <div className="carousel-container">

@@ -48,13 +48,13 @@ class SideBar extends Component {
       <div className="filter2">
         <form>
           <label>Filter By Brands: </label>
-          <pre><input type="checkbox" 
+          <pre><input type="checkbox" id="apple"
           checked = { this.props.selectCheckBox }
           onChange = { this.handleChange }
           /> <label> Apple</label></pre>
-          <pre><input type="checkbox" /> <label> Samsung</label></pre>
-          <pre><input type="checkbox" /> <label> Nokia</label></pre>
-          <pre><input type="checkbox" /> <label> Micromax</label></pre>
+          <pre><input type="checkbox" id="samsung" /> <label> Samsung</label></pre>
+          <pre><input type="checkbox" id="Nokia" /> <label> Nokia</label></pre>
+          <pre><input type="checkbox" id="Micromax" /> <label> Micromax</label></pre>
         </form>
         <hr />
         <hr />
