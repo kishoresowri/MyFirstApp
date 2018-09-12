@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class SideBar extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      query : ''
-    },
+    // this.state = {
+    //   query : ''
+    // },
     this.handleChange = this.handleChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     // this.getSearchList = this.props.getSearchList.bind(this);
@@ -22,10 +22,11 @@ class SideBar extends Component {
     const target = e.target.id;
     console.log(target);
     if(!this.props.checked){
-    if(target.checked === target.value) 
+    // if(target.checked === target.value) 
     this.props.getFilterList(target);
     }   
   }
+  
   render(){
     // const getProducts = this.props.getProducts;
     // console.log(getProducts);

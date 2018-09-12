@@ -3,6 +3,7 @@ import axios from "axios";
 
 import SideBar from "./SideBar";
 import ProductList from "./ProductList";
+import AddToCartView from './AddToCartView';
 import CarouselView from "./CarouselView";
 
 class DashView extends Component {
@@ -12,7 +13,8 @@ class DashView extends Component {
       products: [],
       results: [],
       prevProducts: [],
-      isChecked: false
+      isChecked: false,
+      showData: false
     };
     this.getProductList = this.getProductList.bind(this);
     this.getSearchInfo = this.getSearchInfo.bind(this);
@@ -52,14 +54,11 @@ class DashView extends Component {
      });
 
     } else {
-        // results = prevProducts;
-        // temp = results;
-        console.log(temp,"results");       
+        // console.log(temp,"results");       
         this.setState({
           products: prevProducts
         })
     }
-    
   };
 
   getProductList = item => {
@@ -68,20 +67,22 @@ class DashView extends Component {
     // console.log(products);
     // console.log(item);
     let newProduct = [];
-    if (isChecked === false && item === item) {
+
+    if (!isChecked || item === item) {
       for (let i = 0; i < products.length; i++) {
         if (products[i].ptype === item || products[i].title === item) {
-          console.log(item);
+          // console.log(item);
           newProduct.push(products[i]);
         }
       }
       console.log(newProduct);
       this.setState({
-        prevProducts: this.state.products,
+        // prevProducts: this.state.products,
         products: newProduct,
         isChecked: !isChecked
       });
-    } else {
+    } 
+    else 
       console.log("unchecked");
       // console.log(newProduct);
       console.log(prevProducts);
@@ -91,11 +92,28 @@ class DashView extends Component {
           isChecked: !isChecked
         });
       }
-    }
+    
   };
+
+  toggleChange = () => {
+    console.log('clicked');
+    const doesShow = this.state.showData;
+    this.setState({
+      showData: !doesShow
+    })
+  }
 
   render() {
     const { products, isChecked } = this.state;
+    let cartData = null;
+    if(this.state.showData){
+      cartData = (
+        <div className="cart-panel">
+          <h2> Cart Details </h2>
+          
+        </div>
+      );
+    }
     return (
       <div>
         <div className="main-container-view">
@@ -105,7 +123,8 @@ class DashView extends Component {
             getFilterList={this.getProductList}
             getSearchList={this.getSearchInfo}
           />
-          <ProductList viewProducts={products} />
+          <ProductList viewProducts={products} onChange = { this.toggleChange } />
+          { cartData }
         </div>
         <div className="carousel-container">
           <CarouselView />

@@ -1,17 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
-import Men from "./Components/View/Men";
-import Woman from "./Components/View/Woman";
-import Mobiles from "./Components/View/Mobiles";
-import HomeAndKitchen from "./Components/View/HomeAndKitchen";
-import BabyAndKids from "./Components/View/BabyAndKids";
-import Electronic from "./Components/View/Electronic";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Men from "./View/Men";
+import Woman from "./View/Woman";
+import Mobiles from "./View/Mobiles";
+import HomeAndKitchen from "./View/HomeAndKitchen";
+import BabyAndKids from "./View/BabyAndKids";
+import Electronic from "./View/Electronic";
+import DashView from './Components/DashView';
+import Dash from './View/Dash';
 
 const RouteDetails = (props) => {
   return (
     <Router>
       <div className="router-wrapper">
-        <div className="route-list-info">
+        {/* <div className="route-list-info">
         <ul>
           <li>
             <Link to={"/"}>Mobiles</Link>
@@ -32,15 +34,15 @@ const RouteDetails = (props) => {
             <Link to={"/BabyAndKids"}>Baby & Kids</Link>
           </li>
         </ul>
-        </div>
+        </div> */}
         <div className="route-links-info">
         <Switch>
-          <Route exact path="/" component={Mobiles} />
-          <Route exact path="/Men" component={Men} />
-          <Route exact path="/Woman" component={Woman} />
+          <Route exact path="/" component={Dash} />
+          <Route exact path="/MobileList" component={DashView} />
+          {/* <Route exact path="/Woman" component={Woman} />
           <Route exact path="/Electronic" component={Electronic} />
           <Route exact path="/HomeAndKitchen" component={HomeAndKitchen} />
-          <Route exact path="/BabyAndKids" component={BabyAndKids} />
+          <Route exact path="/BabyAndKids" component={BabyAndKids} /> */}
         </Switch>
         </div>
       </div>

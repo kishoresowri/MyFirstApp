@@ -4,6 +4,8 @@ import "./sass/Style.css";
 import Dash from './View/Dash';
 import Footer from "./View/Footer";
 import DashView from "./Components/DashView";
+import RouteDetails from './RouteDetails';
+
 
 class App extends Component {
   render() {
@@ -13,6 +15,7 @@ class App extends Component {
           <Dash />
           <DashView />
           <Footer />
+          {/* <RouteDetails /> */}
         </div>
       </div>
     );
