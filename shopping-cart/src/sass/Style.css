@@ -1,0 +1,152 @@
+.headerview-details {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-wrapper {
+  margin: 5px 15px;
+  font-size: 15px;
+}
+
+.header-list-details {
+  align-content: center;
+}
+.header-list-details nav ul {
+  list-style: none;
+}
+.header-list-details nav ul li {
+  display: inline-block;
+  margin: 20px;
+  padding: auto;
+  font-size: 18px;
+}
+.header-list-details nav ul a {
+  color: lightgray;
+  text-decoration: none;
+}
+.header-list-details nav ul a:hover {
+  background: light gray;
+}
+.header-list-details nav ul a:active {
+  background: lightgray;
+}
+
+.viewcart-details {
+  margin-top: 20px;
+  font-size: 22px;
+  margin-right: 5%;
+}
+
+.main-container-view {
+  display: flex;
+  margin: 2% 12%;
+  justify-content: space-between;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  position: relative;
+  height: 80px;
+  bottom: 0px;
+}
+.footer-info p {
+  padding: 10px;
+  margin-top: 13px;
+  font-size: 20px;
+}
+
+.sidebar-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+.sidebar-details .search-info input {
+  border: 4px solid lightgray;
+}
+.sidebar-details pre {
+  border: none;
+  background: none;
+  margin-top: 0px;
+  padding: 0px;
+}
+.sidebar-details pre input {
+  margin-top: -10px;
+}
+.sidebar-details pre label {
+  margin-top: 0px;
+}
+
+.product-view-details h3 {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2px;
+  margin-top: 5px;
+}
+.list-container .mobile-list {
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.list-container figure {
+  text-align: center;
+}
+.list-container button {
+  margin-left: 40%;
+}
+.list-container Modal {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.carousel-container {
+  width: 50%;
+  margin-left: 30%;
+  margin-right: 20%;
+}
+
+.carousel-view-container {
+  margin-top: 10px;
+}
+.carousel-view-container h2 {
+  text-align: center;
+  margin-bottom: 5%;
+}
+.carousel-view-container img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 33%;
+}
+
+.AddToCartView {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0px;
+  width: auto;
+  height: auto;
+}
+
+@media (min-width: 992px) {
+  .list-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/*# sourceMappingURL=Style.css.map */
