@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Pagination from 'react-js-pagination';
 
 import SideBar from "./SideBar";
 import ProductList from "./ProductList";
 import AddToCartView from './AddToCartView';
 import CarouselView from "./CarouselView";
+import ProductPagination from './ProductPagination';
 
 class DashView extends Component {
   constructor(props) {
@@ -14,17 +16,21 @@ class DashView extends Component {
       results: [],
       prevProducts: [],
       isChecked: false,
-      showData: false
+      showData: false,
+      page: 1
     };
     this.getProductList = this.getProductList.bind(this);
     this.getSearchInfo = this.getSearchInfo.bind(this);
     // this.clearCheck = this.clearCheck.bind(this);
   }
 
+  componentDidMount = () => {
+    this.getProductDetails(1)
+  }
 
-  componentDidMount() {
+  getProductDetails(pageNumber) {
     // const { isChecked } = this.state;
-    let apiUrl = ` https://api.myjson.com/bins/4xc0c`;
+    let apiUrl = `https://api.myjson.com/bins/4xc0c?page=${pageNumber}`;
     axios.get(apiUrl).then(res => {
       // console.log(res.data.products);
       this.setState({
@@ -96,23 +102,23 @@ class DashView extends Component {
     
   };
 
-  toggleChange = () => {
-    console.log('clicked');
-    const doesShow = this.state.showData;
-    this.setState({
-      showData: !doesShow
-    })
-  }
+  // toggleChange = () => {
+  //   console.log('clicked');
+  //   const doesShow = this.state.showData;
+  //   this.setState({
+  //     showData: !doesShow
+  //   })
+  // }
 
-  onHide = () => {
-    this.setState({
-      showData : this.state.showData
-    })
-  }
+  // onHide = () => {
+  //   this.setState({
+  //     showData : this.state.showData
+  //   })
+  // }
 
-  cartDetails = (dataFromChild) => {
-    console.log(dataFromChild);
-  }
+  // cartDetails = (dataFromChild) => {
+  //   console.log(dataFromChild);
+  // }
 
   render() {
     const { products, isChecked } = this.state;
@@ -134,9 +140,10 @@ class DashView extends Component {
           />
           <ProductList viewProducts={products} action= { this.cartDetails } 
           />
-  
-    
         </div>
+        <ProductPagination getProducts = { products } 
+        
+        />
         <div className="carousel-container">
           <CarouselView />
         </div>

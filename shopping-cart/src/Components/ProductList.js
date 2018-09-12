@@ -5,6 +5,14 @@ import AddToCartView from "./AddToCartView";
 class ProductList extends Component {
  constructor(props){
    super(props);
+   this.state = {
+     activePage: 1,
+     prodPerPage : 6
+   }
+ }
+
+ getMobileDetails = (activePage) => {
+    this.props.componentDidMount(activePage);
  }
   // console.log(viewProducts,'viewProducts');
   render(){

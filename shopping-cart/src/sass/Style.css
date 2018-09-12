@@ -140,6 +140,11 @@
   height: auto;
 }
 
+.pagination-details {
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 992px) {
   .list-container {
     padding-right: 15px;
