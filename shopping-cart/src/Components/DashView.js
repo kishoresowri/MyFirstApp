@@ -6,7 +6,7 @@ import SideBar from "./SideBar";
 import ProductList from "./ProductList";
 import AddToCartView from './AddToCartView';
 import CarouselView from "./CarouselView";
-import ProductPagination from './ProductPagination';
+// import ProductPagination from './ProductPagination';
 
 class DashView extends Component {
   constructor(props) {
@@ -17,25 +17,39 @@ class DashView extends Component {
       prevProducts: [],
       isChecked: false,
       showData: false,
-      page: 1
+      currenctProduct: 1,
+      activePage: 1,
+      prodPerPage: 6,
+      selectedId: null
     };
     this.getProductList = this.getProductList.bind(this);
     this.getSearchInfo = this.getSearchInfo.bind(this);
     // this.clearCheck = this.clearCheck.bind(this);
   }
 
-  componentDidMount = () => {
-    this.getProductDetails(1)
+  handleChange = (pageNumber) => {
+    // const { activePage } = this.state;
+    this.getProductDetails(pageNumber);
+    console.log(`active page is ${ pageNumber }`);
+    this.setState({
+      activePage:pageNumber
+    });
   }
 
-  getProductDetails(pageNumber) {
+  componentDidMount = () => { 
+    this.getProductDetails(1);
+  }
+
+  getProductDetails(activePage) {
     // const { isChecked } = this.state;
-    let apiUrl = `https://api.myjson.com/bins/4xc0c?page=${pageNumber}`;
-    axios.get(apiUrl).then(res => {
+
+    let apiUrl = `https://api.myjson.com/bins/4xc0c?id=${ activePage }`;
+    console.log(activePage);
+    axios.get(apiUrl).then(response => {
       // console.log(res.data.products);
       this.setState({
-        products: res.data.products,
-        prevProducts: res.data.products,
+        products: response.data.products,
+        prevProducts: response.data.products,
         isChecked: this.state.isChecked,
         // results: this.state.results
       });
@@ -102,6 +116,13 @@ class DashView extends Component {
     
   };
 
+  addToCartHandler = (id) => {
+    console.log(id);
+    this.setState({
+      selectedId: id
+    })
+  }
+
   // toggleChange = () => {
   //   console.log('clicked');
   //   const doesShow = this.state.showData;
@@ -121,6 +142,9 @@ class DashView extends Component {
   // }
 
   render() {
+    const { currenctProduct, prodPerPage } = this.state;
+
+
     const { products, isChecked } = this.state;
     let cartData = null;
     if(this.state.showData){
@@ -138,12 +162,31 @@ class DashView extends Component {
             getFilterList={this.getProductList}
             getSearchList={this.getSearchInfo}
           />
-          <ProductList viewProducts={products} action= { this.cartDetails } 
+          <ProductList viewProducts={products} 
+          action= { this.cartDetails } 
+          handleClick= { () => this.addToCartHandler()
+          
+          }
           />
         </div>
-        <ProductPagination getProducts = { products } 
-        
+        <div className="pagination-details">
+        <Pagination 
+          acitvePage = { this.state.activePage }
+          itemsPerPage = { 6 }
+          totalItemsCount = { products.length }
+          pageRangeDisplayed = { 2 }
+          onChange = { this.handleChange }
         />
+        </div>
+        {/* <ProductPagination getProducts = { products } 
+          getProdDetails = { this.getProductDetails }
+        /> */}
+        <div className= "cart-details">
+          <AddToCartView 
+          cartProducts = { products } 
+          id = { this.state.selectedId }
+          />
+        </div>
         <div className="carousel-container">
           <CarouselView />
         </div>
