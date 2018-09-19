@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Men from "./View/Men";
-import Woman from "./View/Woman";
-import Mobiles from "./View/Mobiles";
-import HomeAndKitchen from "./View/HomeAndKitchen";
-import BabyAndKids from "./View/BabyAndKids";
-import Electronic from "./View/Electronic";
+// import Men from "./View/Men";
+// import Woman from "./View/Woman";
+// import Mobiles from "./View/Mobiles";
+// import HomeAndKitchen from "./View/HomeAndKitchen";
+// import BabyAndKids from "./View/BabyAndKids";
+// import Electronic from "./View/Electronic";
 import DashView from './Components/DashView';
 import Dash from './View/Dash';
+import ProductPage from './Components/ProductPage';
 
 const RouteDetails = (props) => {
   return (
@@ -39,6 +40,7 @@ const RouteDetails = (props) => {
         <Switch>
           <Route exact path="/" component={Dash} />
           <Route exact path="/MobileList" component={DashView} />
+          <Route exact path="/products/:id" component={ProductPage} />
           {/* <Route exact path="/Woman" component={Woman} />
           <Route exact path="/Electronic" component={Electronic} />
           <Route exact path="/HomeAndKitchen" component={HomeAndKitchen} />

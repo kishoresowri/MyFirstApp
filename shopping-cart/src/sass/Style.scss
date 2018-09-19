@@ -95,10 +95,11 @@
   flex-direction: column;
   margin-left: 2px;
   margin-top: 5px;
+  
   .mobile-list {
       text-align: center;
       padding-bottom: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 15px;  
   }
   figure {
     text-align: center;
@@ -140,6 +141,31 @@
   // }
 }
 
+.product-info {
+  text-align: center;
+  .title-info {
+    text-align: center;
+  }
+  .product-body-info {
+  text-align: center;
+  }
+}
+
+// .cart-info {
+//   display: flex;
+//   position: absolute;
+  
+//   padding: 20px;
+//   margin-left: 63%;
+//   margin-top: 3%;
+//   // border: 2px solid gainsboro;
+//   width: 220px;
+//   height: 80vh;
+//   h3 {
+//     margin-left: 23px;
+//   }
+// }
+
 @mixin tablet {
   @media (min-width: 400px)  {
     .headerview-details {
@@ -155,7 +181,7 @@
         align-content: center;
       }
       .mobile-list {
-        margin-right: 25px;
+        margin-right: 40px;
       }
     }
     .carousel-container {
@@ -176,6 +202,8 @@
   justify-content: center;
 }
 
+
+
 // .cart-details {
 //   display: flex;
 //   flex-direction: column;
@@ -192,7 +220,7 @@
 
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: auto;
+    margin-right: 40px;
     margin-left: auto;
   }
 

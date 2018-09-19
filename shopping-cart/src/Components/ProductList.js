@@ -7,50 +7,44 @@ class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false,
+      prod: [],
+      cart:[],
+      show: false
     };
+   
+    // this.handleShow = this.handleShow.bind(this);
+     this.handleHide = this.handleHide.bind(this);
   }
   handleHide() {
-    this.setState({ show: false });
-  }
-
-  handleShow(item) {
-    this.productDetails(item);
-    this.setState({ show: true });
-  }
-
-  productDetails = prod => {
-    console.log(prod);
     this.setState({
-      prod : prod
+      show: false
     })
-    // console.log(prod.title);
-    // console.log(prod.id);
-    // console.log(prod.price);
-    // const { show } = this.state;
+  }
 
-    // return (
-    //   <Modal show={this.state.show} onHide={() => this.handleHide()}>
-    //     <Modal.Header closeButton>
-    //       <Modal.Title>Product Details</Modal.Title>
-    //     </Modal.Header>
-    //     <Modal.Body>
-    //       <div className="prod-details">
-    //         <span> {prod.id}</span>
-    //         <span> {prod.title} </span>
-    //         <span> {prod.price} </span>
-    //         <span> {prod.ptype} </span>
-    //       </div>
-    //     </Modal.Body>
-    //     <Modal.Footer>
-    //       <Button onClick={() => this.handleHide()}>Close</Button>
-    //     </Modal.Footer>
-    //   </Modal>
-    //  );
+  productDetails = (prod) => {
+    console.log(prod); 
+    this.setState({
+      prod: prod,
+      show: true
+    })
   };
+
+  cartDetails = (cart) => {
+    // console.log(cart);
+   let cartView = this.state.cart;
+   let item = cart;
+   cartView.push(item);  
+   console.log(cartView,'New Cart');
+   localStorage.setItem("cartView", JSON.stringify(cartView));
+  //  console.log(cartView,'cart products are');
+    this.setState({
+      cart: cartView 
+    })
+  }
 
   render() {
     const { viewProducts } = this.props;
+    // console.log(viewProducts,'product Details')
     return (
       <div className="list-container">
         <div className="mobile-list">
@@ -64,7 +58,7 @@ class ProductList extends Component {
                   <Image
                     src={item.image}
                     thumbnail
-                    onClick={() => this.handleShow(item)}
+                    onClick={() => this.productDetails(item)}
                   />
                   <figcaption>{item.title}</figcaption>
                   <figcaption>
@@ -72,7 +66,7 @@ class ProductList extends Component {
                     {item.price}
                   </figcaption>
                 </figure>
-                <Button bsStyle="primary" onClick={this.props.handleClick}>
+                <Button bsStyle="primary" onClick={() => this.cartDetails(item)}>
                   <i className="fa fa-shopping-cart" />
                   Add
                 </Button>
@@ -81,27 +75,16 @@ class ProductList extends Component {
             ))}
           </Row>
         </Grid>
-        {/* <div>
-          <ProductPage getProductPage = { this.productDetails } />
-        </div> */}
-        <Modal show={this.state.show} onShow={() => this.handleShow()} onHide={() => this.handleHide()}>
-          <Modal.Header closeButton>
-            <Modal.Title>Product Details</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-                {/*   <Image src={item.image} />
-                     <div className="prod-details">
-                      {console.log(item.id)}
-                        <span> {item.id}</span>
-                        <span> {item.title} </span>
-                        <span> {item.price} </span>
-                        <span> {item.ptype} </span>
-                      </div> */}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={() => this.handleHide()}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+        <ProductPage 
+        products = { this.state.prod }
+        productDetails={this.productDetails}
+        handleShow = {  this.state.show }
+        handleHide = { this.handleHide }
+       />
+       <AddToCartView 
+       cartProducts = { this.state.cart }
+       cartDetials = { this.cartDetails }
+       />
       </div>
     );
   }

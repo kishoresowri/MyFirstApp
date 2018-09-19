@@ -43,10 +43,10 @@ class DashView extends Component {
   getProductDetails(activePage) {
     // const { isChecked } = this.state;
 
-    let apiUrl = `https://api.myjson.com/bins/4xc0c?id=${ activePage }`;
+    let apiUrl = `https://api.myjson.com/bins/4xc0c?id=${ activePage }&prodPerPage=6`;
     console.log(activePage);
     axios.get(apiUrl).then(response => {
-      // console.log(res.data.products);
+      console.log(response.data.products);
       this.setState({
         products: response.data.products,
         prevProducts: response.data.products,
@@ -164,8 +164,7 @@ class DashView extends Component {
           />
           <ProductList viewProducts={products} 
           action= { this.cartDetails } 
-          handleClick= { () => this.addToCartHandler()
-          
+          handleClick= { () => this.addToCartHandler()     
           }
           />
         </div>
@@ -181,12 +180,6 @@ class DashView extends Component {
         {/* <ProductPagination getProducts = { products } 
           getProdDetails = { this.getProductDetails }
         /> */}
-        <div className= "cart-details">
-          <AddToCartView 
-          cartProducts = { products } 
-          id = { this.state.selectedId }
-          />
-        </div>
         <div className="carousel-container">
           <CarouselView />
         </div>
